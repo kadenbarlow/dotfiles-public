@@ -1,0 +1,17 @@
+{
+  "name": "vim-snippets",
+  "displayName": "vim-snippets",
+  "description": "Personal Vim Snippets",
+  "version": "0.0.1",
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "ruby",
+        "path": "./ruby.json"
+      }
+    ]
+  }
+}

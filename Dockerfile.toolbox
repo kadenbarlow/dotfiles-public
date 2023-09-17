@@ -1,0 +1,65 @@
+FROM ubuntu:latest
+
+WORKDIR /root
+ENV DEBIAN_FRONTEND="noninteractive"
+RUN apt update -y && apt upgrade -y && apt install -y \
+  bash-completion \
+  build-essential \
+  ca-certificates \
+  cmake \
+  curl \
+  dnsutils \
+  fonts-firacode \
+  git \
+  gnupg2 \
+  ispell \
+  iputils-ping \
+  jq \
+  tmux \
+  make \
+  libssl-dev \
+  libbz2-dev \
+  libreadline-dev \
+  libsqlite3-dev \
+  llvm \
+  libncurses5-dev \
+  libxml2-dev \
+  libxmlsec1-dev \
+  libffi-dev \
+  liblzma-dev \
+  python \
+  tk-dev \
+  tree \
+  unzip \
+  vim \
+  wget \
+  xclip \
+  xz-utils \
+  zlib1g-dev \
+  zip
+
+# Install Ruby
+RUN git clone https://github.com/rbenv/ruby-build.git && \
+    PREFIX=/usr/local ./ruby-build/install.sh && \
+    ruby-build 3.1.1 /usr/bin/ruby && \
+    rm -rf ruby-build
+ENV PATH="/usr/bin/ruby/bin:$PATH"
+
+# Install Aescrypt
+RUN wget https://github.com/FreedomBen/aescrypt/archive/master.zip && \
+    unzip master.zip && \
+    cd aescrypt-master/linux/src && \
+    make && \
+    make install && \
+    cd /root && \
+    rm -rf aescrypt-master master.zip
+
+# Install Kubectl
+RUN curl -sLf https://storage.googleapis.com/kubernetes-release/release/v1.16.8/bin/linux/amd64/kubectl > /usr/local/bin/kubectl-1.19 && \
+    curl -sLf https://storage.googleapis.com/kubernetes-release/release/v1.17.4/bin/linux/amd64/kubectl > /usr/local/bin/kubectl-1.20 && \
+    curl -sLf https://storage.googleapis.com/kubernetes-release/release/v1.18.0/bin/linux/amd64/kubectl > /usr/local/bin/kubectl-1.21 && \
+    chmod +x /usr/local/bin/kubectl* && \
+    ln -s /usr/local/bin/kubectl-1.21 /usr/local/bin/kubectl && \
+    mkdir /root/.kube
+
+CMD bash

@@ -1,0 +1,14 @@
+[includeIf "gitdir:**/projects/**/.git"]
+  path = ~/.dotfiles/git/gitconfig-personal
+
+[includeIf "gitdir:**/.dotfiles/**/.git"]
+  path = ~/.dotfiles/git/gitconfig-personal
+
+# [includeIf "gitdir:**/work/**/.git"]
+#   path = ~/.dotfiles/git/gitconfig-work
+
+[push]
+  default = current
+  rebase = false
+[credential]
+	helper = osxkeychain

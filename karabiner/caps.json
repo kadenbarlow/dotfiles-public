@@ -1,0 +1,31 @@
+{
+  "title": "Personal Configuration",
+  "rules": [
+    {
+      "manipulators": [
+        {
+          "description": "Change caps_lock to command+control+option+shift.",
+          "from": {
+            "key_code": "escape",
+            "modifiers": {
+              "mandatory": [
+                "left_command"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_option"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}

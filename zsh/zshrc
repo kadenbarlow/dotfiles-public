@@ -1,0 +1,25 @@
+export PATH="/opt/homebrew/bin:$PATH"
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source ~/.zinit/bin/zinit.zsh
+source ~/.dotfiles/zsh/config/theme.sh
+
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh
+# zinit snippet OMZ::plugins/kube-ps1/kube-ps1.plugin.zsh
+zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
+zinit light Aloxaf/fzf-tab
+zinit light zsh-users/zsh-syntax-highlighting
+zinit ice wait lucid atload'_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
+zinit snippet 'https://raw.githubusercontent.com/softmoth/zsh-vim-mode/main/zsh-vim-mode.plugin.zsh'
+
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+  zinit ice depth=1; zinit light romkatv/powerlevel10k
+fi
+
+source ~/.dotfiles/zsh/config.sh
+source ~/.work.sh

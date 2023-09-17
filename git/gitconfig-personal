@@ -1,0 +1,8 @@
+[core]
+     excludesfile = /Users/kadenbarlow/.dotfiles/git/gitignore-global
+[user]
+     name = Kaden Barlow
+     email = kadenbarlow@gmail.com
+     signingkey = FA734DA64DE69E17
+[commit]
+     gpgsign = true
