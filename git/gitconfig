@@ -11,4 +11,54 @@
   default = current
   rebase = false
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
+
+[core]
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  features = line-numbers theme
+  navigate = true
+  side-by-side = false
+
+[delta "line-numbers"]
+  line-numbers = true
+  line-numbers-minus-style = "#444444"
+  line-numbers-zero-style = "#444444"
+  line-numbers-plus-style = "#444444"
+  line-numbers-left-format = "{nm:>4}┊"
+  line-numbers-right-format = "{np:>4}│"
+  line-numbers-left-style = blue
+  line-numbers-right-style = blue
+
+[delta "theme"]
+  dark = true
+  true-color = always
+  syntax-theme = ansi
+  file-style = omit
+  file-decoration-style = none
+  hunk-header-style = file line-number bold
+  hunk-header-decoration-style = "#3E3E43" box ul
+
+  plus-style = syntax "#003500"
+  plus-emph-style = syntax bold "#007E5E"
+  minus-style = normal "#5E0000"
+  minus-emph-style = normal "#80002A"
+  zero-style = syntax
+  whitespace-error-style = black bold
+
+  blame-code-style = syntax
+  blame-palette = "#161617" "#1B1B1D" "#2A2A2D" "#3E3E43"
+
+  merge-conflict-begin-symbol = ~
+  merge-conflict-end-symbol = ~
+  merge-conflict-ours-diff-header-style = yellow bold
+  merge-conflict-ours-diff-header-decoration-style = "#3E3E43" box
+  merge-conflict-theirs-diff-header-style = yellow bold
+  merge-conflict-theirs-diff-header-decoration-style = "#3E3E43" box
+
+  commit-decoration-style = omit
+  commit-style = "#0F111A" green italic

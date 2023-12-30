@@ -1,6 +1,4 @@
 local window = require('window_management')
-local clipboard = require('clipboard')
-require('wifi')
 require('layouts')
 
 -- Hotkey Combinations
@@ -19,11 +17,6 @@ hs.hotkey.bind(hyper, "3", function() ApplyLayout(DevLayout3) end)
 hs.hotkey.bind(hyper, "4", function() ApplyLayout(DevLayout4) end)
 
 hs.hotkey.bind(hyper, "r", hs.reload)
-
--- Window Bindings
-hs.hints.hintChars = {"Q", "W", "E", "R", "T", "A", "S", "D", "F"}
-hs.hints.showTitleThresh = 10
-hs.hotkey.bind({"cmd"}, "e", hs.hints.windowHints)
 
 hs.hotkey.bind(secondary, "f", function()
   for _,window in pairs(hs.window.allWindows()) do
@@ -59,16 +52,18 @@ local function toggleTandemMic()
 end
 
 local function toggleTandemVideo()
-  hs.eventtap.keyStroke({"cmd", "shift"}, "p")
+  hs.eventtap.keyStroke({"cmd", "shift"}, ",")
 end
 
 -- Keybindings
 hs.hotkey.bind({"alt"}, "space", foregroundApplication("kitty"))
 
 windowBind(remap, {
+  -- f16
+  -- f17
+  -- f18 = ,
   f19 = toggleTandemVideo,
-  f16 = toggleTandemMic,
-  f20 = toggleTandemMic
+  f20 = toggleTandemMic,
 })
 
 windowBind(hyper, {
@@ -85,10 +80,9 @@ windowBind(hyper, {
   n = window.left70,
   m = window.right70,
   b = window.middle50,
-  d = foregroundApplication("Google Chrome"),
   a = foregroundApplication("Slack"),
+  d = foregroundApplication("Google Chrome"),
   e = foregroundApplication("MongoDB Compass"),
-  t = foregroundApplication("Notion"),
 })
 
 windowBind(secondary, {
@@ -96,9 +90,4 @@ windowBind(secondary, {
   l = window.throwRight,
   k = window.throwUp,
   j = window.throwDown,
-})
-
-clipboard:start()
-clipboard:bindHotkeys({
-  toggle_clipboard = { hyper, "v" }
 })

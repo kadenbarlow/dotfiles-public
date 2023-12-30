@@ -19,7 +19,7 @@ fi
 
 if [ "$(command -v bat)" ]; then
   unalias -m 'cat'
-  alias cat='bat -pp --theme="Monokai Extended"'
+  alias cat='bat -pp --theme="ansi"'
 fi
 
 copyssh(){ openssl rsa -in $1 | pbcopy } # decrypts an ssh key and copies to clipboard

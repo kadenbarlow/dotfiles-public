@@ -1,0 +1,8 @@
+require("core.functions.codeium")
+require("core.functions.editor")
+require("core.functions.git")
+require("core.functions.neoformat")
+require("core.functions.quickfix")
+require("core.functions.refactoring")
+require("core.functions.telescope")
+vim.cmd.source("~/.dotfiles/nvim/lua/core/functions/quickfix.vim")
