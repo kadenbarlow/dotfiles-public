@@ -7,25 +7,11 @@ function CopyAbsoluteFilePath()
 end
 
 function CopyProjectFilePath()
-    local root_names = {".git", "Makefile"}
-    local root_cache = {}
-    local path = vim.fn.expand("%:p")
+    copy(vim.fn.expand("%:~:."))
+end
 
-    if path == "" then
-        return
-    end
-    path = vim.fs.dirname(path)
-
-    local root = root_cache[path]
-    if root == nil then
-        local root_file = vim.fs.find(root_names, {path = path, upward = true})[1]
-        if root_file == nil then
-            return
-        end
-        root = vim.fs.dirname(root_file)
-        root_cache[path] = root
-    end
-    copy(vim.fn.expand("%:p"):gsub((root .. "/"), ""))
+function CopyProjectFilePathAndLineNumber()
+    copy(vim.fn.expand("%:~:.") .. ":" .. vim.fn.line(".") + 1)
 end
 
 function GitCurrentBranch()

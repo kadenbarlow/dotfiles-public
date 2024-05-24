@@ -1,0 +1,32 @@
+{
+  "arrowFunction": {
+    "prefix": ["fn{", "arrowFunction"],
+    "body": ["($1) => { $0 }"],
+    "description": "Boilerplate syntax for an arrow function"
+  },
+  "arrowFunctionReturningObject": {
+    "prefix": ["fn(", "arrowFunctionReturnsObject"],
+    "body": ["($1) => ({ $0 })"],
+    "description": "Boilerplate syntax for an anonymous function that returns an object"
+  },
+  "singleLineArrowFunction": {
+    "prefix": ["fn", "singleLineArrowFunction"],
+    "body": ["($1) => $0 "],
+    "description": "Boilerplate syntax for an single line anonymous function"
+  },
+  "fetch": {
+    "prefix": ["fetch"],
+    "body": [
+      "fetch(\"$1\", {",
+      "  method: \"$2\",",
+      "  headers: {",
+      "    \"Content-Type\":  \"application/json\",",
+      "  },",
+      "  body: JSON.stringify({",
+      "    $0",
+      "  }),",
+      "})"
+    ],
+    "description": "Inserts code needed to make a request with fetch"
+  }
+}

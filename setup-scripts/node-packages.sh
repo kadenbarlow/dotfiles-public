@@ -7,8 +7,9 @@ NVM_DIR="$HOME/.nvm"
 packages=(
   eslint
   eslint_d
+  lua-fmt
+  prettier
   yarn
-  # chrome-remote-interface
 )
 
 for package in ${packages[@]}; do

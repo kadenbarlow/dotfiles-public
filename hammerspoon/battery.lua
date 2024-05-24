@@ -7,22 +7,26 @@ local function batteryChangedCallback()
     local timeRemaining = hs.battery.timeRemaining()
 
     if percentage <= 20 then
-      batteryMenu:setIcon(hs.image.imageFromURL("https://img.icons8.com/ios-glyphs/20/000000/low-battery.png"))
+        batteryMenu:setIcon(hs.image.imageFromURL("https://img.icons8.com/ios-glyphs/20/000000/low-battery.png"))
     elseif percentage > 20 and percentage <= 80 then
-      batteryMenu:setIcon(hs.image.imageFromURL("https://img.icons8.com/ios-glyphs/20/000000/medium-battery.png"))
+        batteryMenu:setIcon(hs.image.imageFromURL("https://img.icons8.com/ios-glyphs/20/000000/medium-battery.png"))
     elseif percentage > 80 then
-      batteryMenu:setIcon(hs.image.imageFromURL("https://img.icons8.com/ios-glyphs/20/000000/full-battery.png"))
+        batteryMenu:setIcon(hs.image.imageFromURL("https://img.icons8.com/ios-glyphs/20/000000/full-battery.png"))
     end
 
     if timeRemaining > 0 then
-      batteryMenu:setTitle(" " .. math.floor(percentage) .. '% - ' .. (math.floor(timeRemaining/60)) .. "h " .. (math.floor(timeRemaining%60)) .. "m" )
+        batteryMenu:setTitle(
+            " " ..
+                math.floor(percentage) ..
+                    "% - " .. (math.floor(timeRemaining / 60)) .. "h " .. (math.floor(timeRemaining % 60)) .. "m"
+        )
     else
-      batteryMenu:setTitle(" " .. math.floor(percentage) .. '%')
+        batteryMenu:setTitle(" " .. math.floor(percentage) .. "%")
     end
 end
 
 local function openBattery()
-  hs.execute('open "x-apple.systempreferences:com.apple.preference.battery"')
+    hs.execute('open "x-apple.systempreferences:com.apple.preference.battery"')
 end
 batteryMenu:setClickCallback(openBattery)
 

@@ -1,5 +1,7 @@
 require("plugins.bookmarks")
-require("plugins.catppuccin")
+-- require("plugins.catppuccin") -- enable this and comment nordic below to switch themes
+require("plugins.cloak")
+require("plugins.nordic") -- this needs to come before indent
 require("plugins.codeium")
 require("plugins.hop")
 require("plugins.indent")
@@ -12,3 +14,4 @@ require("plugins.treesj")
 vim.cmd.source("~/.dotfiles/nvim/lua/plugins/fugitive.vim")
 require("plugins.neoformat")
 require("plugins.colorizer")
+vim.cmd.source("~/.dotfiles/nvim/lua/plugins/surround.vim")

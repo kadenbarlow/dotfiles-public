@@ -9,10 +9,9 @@ local function ssidChangedCallback()
 end
 
 local function openWifi()
-  hs.execute('open "x-apple.systempreferences:com.apple.preference.network"')
+    hs.execute('open "x-apple.systempreferences:com.apple.preference.network"')
 end
 wifiMenu:setClickCallback(openWifi)
-
 
 local wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
 wifiWatcher:start()

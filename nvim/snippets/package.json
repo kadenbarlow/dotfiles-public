@@ -11,6 +11,38 @@
       {
         "language": "ruby",
         "path": "./ruby.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./react.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./react.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./react.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./react.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./cypress.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./cypress.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./javascript.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./javascript.json"
       }
     ]
   }

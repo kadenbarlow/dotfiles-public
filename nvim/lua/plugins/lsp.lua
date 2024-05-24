@@ -6,7 +6,7 @@ lsp.ensure_installed(
         "bashls",
         "cssls",
         "dockerls",
-        "emmet_ls",
+        "emmet_language_server",
         "eslint",
         "jedi_language_server",
         "jsonls",
@@ -157,3 +157,14 @@ for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = ""})
 end
+
+local cmp = require("cmp")
+local action = require("lsp-zero").cmp_action()
+cmp.setup(
+    {
+        mapping = {
+            ["<C-l>"] = action.luasnip_jump_forward(),
+            ["<C-h>"] = action.luasnip_jump_backward()
+        }
+    }
+)

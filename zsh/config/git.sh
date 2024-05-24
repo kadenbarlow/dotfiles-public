@@ -55,6 +55,15 @@ alias gbds="git fetch -p && git branch -vv | \
                       end' </tmp/merged_branches"
 alias xdb="gbds"
 
+alias gbDs="git fetch -p && git branch -vv | cat >/tmp/all_branches && \
+            vim /tmp/all_branches && \
+            ruby -e 'while l = gets; \
+                        system(\"git branch -D #{l.strip[/(^([A-Za-z]|\d|\-|\/|_)*) /,1]}\"); \
+                      end' </tmp/all_branches"
+alias xDb="gbds"
+
+alias gh-delete-caches="gh cache list | awk '{print \$1}' | xargs -L 1 gh cache delete"
+
 function gpsur() {
   local output
   output=$(git push --set-upstream origin "$(current_branch)" 2>&1)

@@ -16,7 +16,7 @@ mkdir -p ~/Library/Preferences/k9s
 ln -sf $PWD/k9s/skin.yml ~/Library/Application\ Support/k9s/skin.yml
 ln -sf $PWD/k9s/plugin.yml ~/Library/Application\ Support/k9s/plugin.yml
 
-mkdir -p ~/Library/Application\ Support/codewhisperer
-ln -sf $PWD/zsh/config/codewhisperer.json ~/Library/Application\ Support/codewhisperer/settings.json
+mkdir -p ~/Library/Application\ Support/amazon-q
+ln -sf $PWD/zsh/config/amazonq.json ~/Library/Application\ Support/amazon-q/settings.json
 
 touch $HOME/.work.sh

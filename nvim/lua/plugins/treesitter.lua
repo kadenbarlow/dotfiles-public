@@ -19,7 +19,6 @@ require("nvim-treesitter.configs").setup {
         "c_sharp",
         "css",
         "dart",
-        "dockerfile",
         "elixir",
         "go",
         "graphql",

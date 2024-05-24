@@ -1,4 +1,6 @@
 local telescope = require("telescope")
+local lga_actions = require("telescope-live-grep-args.actions")
+
 telescope.load_extension("dir")
 telescope.load_extension("vim_bookmarks")
 telescope.setup(
@@ -20,6 +22,14 @@ telescope.setup(
                 override_file_sorter = true, -- override the file sorter
                 case_mode = "smart_case" -- or "ignore_case" or "respect_case"
                 -- the default case_mode is "smart_case"
+            },
+            live_grep_args = {
+                mappings = {
+                    i = {
+                        ["<C-i>"] = lga_actions.quote_prompt({postfix = " --iglob "}),
+                        ["<C-t>"] = lga_actions.quote_prompt({postfix = " --type "})
+                    }
+                }
             }
         }
     }

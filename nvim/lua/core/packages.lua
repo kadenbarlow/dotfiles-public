@@ -32,6 +32,7 @@ packer.startup(
         use "MattesGroeger/vim-bookmarks" -- lets you annotate bookmarks across files, likes marks but globally
         use "christoomey/vim-tmux-navigator" -- lets you navigate to tmux windows with normal vim bindings
         use "phaazon/hop.nvim" -- lets you jump to char by highlight all options in buffer and providing key combo to jump
+        use "ThePrimeagen/harpoon" -- jump between several files in use currently
 
         -- Plugins for modifying and changing text
         use "tpope/vim-surround" -- change those quotes or braces
@@ -44,6 +45,8 @@ packer.startup(
         use "Wansmer/treesj" -- uses treesitter to join and split lines
         use "AndrewRadev/splitjoin.vim" -- fallback if treesitter doesn't work for joining and splitting lines
         use "godlygeek/tabular" -- format text by aligning on specified delimiters
+        use "chrisbra/NrrwRgn" -- edit a single region of text
+        use "laytan/cloak.nvim" -- hide sensitive text in files
 
         -- Plugins for autoclosing blocks and tags etc
         use "RRethy/nvim-treesitter-endwise" -- add "end" automatically in languages that use it
@@ -56,15 +59,15 @@ packer.startup(
 
         -- Plugins for making the editor look nice
         use "norcalli/nvim-colorizer.lua" -- highlight hex values in buffer with colors
-        use "nvim-tree/nvim-web-devicons" -- icons in file exporer and statusbar
+        use {"nvim-tree/nvim-web-devicons", commit = "313d9e7193354c5de7cdb1724f9e2d3f442780b0"} -- icons in file exporer and statusbar
         use "nvim-tree/nvim-tree.lua" -- file explorer sidebar
         use "mbbill/undotree" -- visual undotree
         use {"kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async"} -- visual folding
         use "luukvbaal/statuscol.nvim" -- Used to make folding on the sidebar look good required by nvim-ufo
-        use {"catppuccin/nvim", as = "catppuccin"}
-        use {"freddiehaddad/feline.nvim"}
+        use {"catppuccin/nvim", as = "catppuccin"} -- colorscheme
+        use {"AlexvZyl/nordic.nvim"} -- additional freaking beautiful theme
+        use {"freddiehaddad/feline.nvim"} -- statusbar theme
         use {"lewis6991/gitsigns.nvim"} -- git signs
-        -- use "marko-cerovac/material.nvim" -- material ocean theme that I liked
 
         -- LSP related plugins and configuration
         use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"} -- syntax highlighting improvements
@@ -83,11 +86,12 @@ packer.startup(
                 {"hrsh7th/cmp-path"},
                 {"saadparwaiz1/cmp_luasnip"},
                 {"hrsh7th/cmp-nvim-lua"},
-                {"L3MON4D3/LuaSnip"},
+                {"L3MON4D3/LuaSnip", run = "make install_jsregexp"},
                 {"rafamadriz/friendly-snippets"},
                 {"folke/neodev.nvim"} -- Additional lua configuration, makes nvim stuff amazing
             }
         }
+        use "folke/trouble.nvim" -- Used with <leader>tt to jump to errors quickly in a file
 
         use "Exafunction/codeium.vim"
 

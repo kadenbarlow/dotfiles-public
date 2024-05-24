@@ -1,12 +1,13 @@
 alias dotfiles="cd ~/.dotfiles"
+alias dbg="~/.dotfiles/zsh/config/tmux-node-debugger.sh"
 alias myip="ifconfig en0 | awk '\$1 == \"inet\" {print \$2}'"
 alias lineselect="cat >/tmp/lineselect && vim /tmp/lineselect && cat /tmp/lineselect"
-alias ngrk="ngrok http"
 alias scripts="jq '.scripts' package.json"
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias uuid="uuidgen | awk '{print tolower(\$0)}' | pbcopy && pbpaste | cat -"
 alias vim="nvim"
 alias vi="nvim"
-alias vim-benchmarks="nvim --startuptime /dev/stdout +qall"
+alias vim-benchmarks="nvim --startuptime /dev/stdout +qall;time vim +q;"
 
 if [ "$(command -v exa)" ]; then
     unalias -m 'll'

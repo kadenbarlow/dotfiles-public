@@ -1,0 +1,9 @@
+{
+  "app.preferredTerminal": "Kitty",
+  "autocomplete.keybindings.enter": "insertSelected",
+  "autocomplete.keybindings.insertCommonPrefixOrNavigateDown": "tab",
+  "autocomplete.keybindings.insertSelected": "tab",
+  "autocomplete.keybindings.tab": "insertCommonPrefixOrNavigateDown",
+  "app.hideMenubarIcon": true,
+  "autocomplete.theme": "poimandres"
+}

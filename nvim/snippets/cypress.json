@@ -1,0 +1,7 @@
+{
+  "itemByTestId": {
+    "prefix": ["testid"],
+    "body": ["cy.get(\"[data-testid=${1:id}]\").$0"],
+    "description": "Creates a stateless React component as a named function"
+  }
+}
