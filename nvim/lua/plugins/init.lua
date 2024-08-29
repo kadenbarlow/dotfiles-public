@@ -1,12 +1,14 @@
+require("plugins.autotag")
 require("plugins.bookmarks")
--- require("plugins.catppuccin") -- enable this and comment nordic below to switch themes
+require("plugins.catppuccin") -- enable this and comment nordic below to switch themes
 require("plugins.cloak")
-require("plugins.nordic") -- this needs to come before indent
+-- require("plugins.nordic") -- this needs to come before indent
 require("plugins.codeium")
 require("plugins.hop")
 require("plugins.indent")
 require("plugins.lsp")
 require("plugins.nvim-tree")
+require("plugins.pairs")
 require("plugins.refactoring")
 require("plugins.telescope")
 require("plugins.treesitter")

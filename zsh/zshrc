@@ -1,13 +1,14 @@
 # Amazon Q pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/$HOME/.local/bin:$PATH"
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 source ~/.zinit/bin/zinit.zsh
-source ~/.dotfiles/zsh/config/theme.sh
+source ~/.dotfiles/zsh/config/p10ktheme.zsh
 
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh

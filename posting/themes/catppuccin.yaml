@@ -1,0 +1,14 @@
+name: catppuccin  # use this name in your config file
+primary: '#5E81AC'  # buttons, fixed table columns
+secondary: '#5E81AC'  # method selector, some minor labels
+accent: '#FAB387'  # header text, scrollbars, cursors, focus highlights
+background: '#0F111A' # background colors
+surface: '#0F111A'  # panels, etc
+error: '#F38BA8'  # error messages
+success: '#A6E3A1'  # success messages
+warning: '#FAB387'  # warning messages
+syntax: 'dracula'  # auto-switch syntax highlighting theme
+
+# Optional metadata
+author: Kaden Barlow
+description: Catppuccin theme with modified background colors

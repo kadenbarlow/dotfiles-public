@@ -1,0 +1,3 @@
+theme_directory: /Users/kadenbarlow/.dotfiles/posting/themes
+theme: catppuccin
+load_builtin_themes: false

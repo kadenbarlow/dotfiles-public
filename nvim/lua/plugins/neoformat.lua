@@ -6,8 +6,8 @@ vim.g.neoformat_vue_eslint = {
 }
 
 vim.g.neoformat_enabled_go = {"gofmt"}
-vim.g.neoformat_enabled_javascript = {"eslint_d"}
--- vim.g.neoformat_enabled_javascript = { 'prettier', 'eslint_d' }
+-- vim.g.neoformat_enabled_javascript = {"eslint_d"}
+vim.g.neoformat_enabled_javascript = {"eslint_d", "prettier"}
 
 vim.g.neoformat_enabled_vue = {"eslint"} -- custom formatter from above
 -- vim.g.neoformat_enabled_vue = { 'prettier', 'eslint' } -- custom formatter from above

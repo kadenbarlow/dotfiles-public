@@ -25,6 +25,7 @@ alias gl="git pull"
 alias grh="git reset --hard origin/\$(current_branch)"
 alias grs="git reset --soft HEAD^"
 alias gs="git status"
+#alias pr="gh pr create --template ~/.dotfiles/git/pull-request-template.txt"
 
 alias b="git branch"
 alias bc="git checkout -b"

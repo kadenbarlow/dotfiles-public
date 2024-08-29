@@ -43,7 +43,7 @@ ctp_feline.setup(
         },
         sett = {
             text = clrs.black0,
-            -- bkg = clrs.gray0,
+            bkg = "NONE",
             diffs = clrs.green.base,
             extras = clrs.overlay1,
             curr_file = clrs.orange.bright,
@@ -83,9 +83,12 @@ ctp_feline.setup(
     }
 )
 
+local ctp_components = ctp_feline.get()
+ctp_components.inactive[1][1].hl.bg = "NONE"
+
 feline.setup(
     {
-        components = ctp_feline.get()
+        components = ctp_components
     }
 )
 

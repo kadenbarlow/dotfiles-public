@@ -2,8 +2,6 @@
   "newReactComponent": {
     "prefix": ["rc", "reactcomponent"],
     "body": [
-      "import React from 'react';",
-      "",
       "export interface I${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}Props {",
       "  $2",
       "};",
@@ -13,30 +11,6 @@
       "};"
     ],
     "description": "Creates a stateless React component as a named function"
-  },
-  "newReactComponentStory": {
-    "prefix": ["sb", "storybook"],
-    "body": [
-      "import React from \"react\";",
-      "import $1, { I$1Props } from \".\"",
-      "",
-      "export default {",
-      "  title: \"$2\",",
-      "  component: $1,",
-      "  args: {},",
-      "  decorators: [$3],",
-      "};",
-      "",
-      "const Template = (props: I$1Props) => {",
-      "  return <$1 {...props}/>;",
-      "};",
-      "",
-      "export const Example = Template.bind({});",
-      "Example.args = {",
-      "  $0",
-      "}"
-    ],
-    "description": "Creates a base Storybook file for a React component"
   },
   "useImportedStyleClassName": {
     "prefix": ["st"],
@@ -77,7 +51,7 @@
   "useMemo": {
     "prefix": ["um", "useMemo", "hooks.useMemo"],
     "body": [
-      "let ${1:memoizedValue} = useMemo(() => ${3:computeExpensiveValue}($2), [${2:deps}])"
+      "const ${1:memoizedValue} = useMemo(() => ${3:computeExpensiveValue}($2), [${2:deps}])"
     ],
     "description": "`useMemo()`, Returns a memoized value.\n"
   },

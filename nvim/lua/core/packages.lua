@@ -22,7 +22,7 @@ packer.startup(
         use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins required by several other plugins listed
 
         -- Telescope Plugins
-        use {"nvim-telescope/telescope.nvim", tag = "0.1.1"} -- all things searching
+        use {"nvim-telescope/telescope.nvim", tag = "0.1.4"} -- all things searching
         use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"} -- better fuzzy searching than native telescope
         use "nvim-telescope/telescope-live-grep-args.nvim" -- pass arguments into telescope for limiting file type or directory
         use "princejoogie/dir-telescope.nvim" -- used in <leader>sd and <leader>pd to have an interactive picker for searching a specific directory for text or file
@@ -51,7 +51,7 @@ packer.startup(
         -- Plugins for autoclosing blocks and tags etc
         use "RRethy/nvim-treesitter-endwise" -- add "end" automatically in languages that use it
         use "windwp/nvim-ts-autotag" -- html tag autoclose and refactoring
-        use "jiangmiao/auto-pairs" -- add closing braces and quotes automatically
+        use "echasnovski/mini.pairs" -- add closing braces and quotes automatically
         use "andymass/vim-matchup" -- fix % operator to work in languages with weird syntax (like ruby...)
         use "lukas-reineke/indent-blankline.nvim" -- add indentation guides to make it easier to spot pairs
         use "maxmellon/vim-jsx-pretty" -- jsx indentation and highlighting
@@ -65,7 +65,7 @@ packer.startup(
         use {"kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async"} -- visual folding
         use "luukvbaal/statuscol.nvim" -- Used to make folding on the sidebar look good required by nvim-ufo
         use {"catppuccin/nvim", as = "catppuccin"} -- colorscheme
-        use {"AlexvZyl/nordic.nvim"} -- additional freaking beautiful theme
+        -- use {"AlexvZyl/nordic.nvim"} -- additional freaking beautiful theme
         use {"freddiehaddad/feline.nvim"} -- statusbar theme
         use {"lewis6991/gitsigns.nvim"} -- git signs
 
@@ -91,9 +91,9 @@ packer.startup(
                 {"folke/neodev.nvim"} -- Additional lua configuration, makes nvim stuff amazing
             }
         }
-        use "folke/trouble.nvim" -- Used with <leader>tt to jump to errors quickly in a file
+        use {"folke/trouble.nvim", tag = "v2.10.0"} -- Used with <leader>tt to jump to errors quickly in a file
 
-        use "Exafunction/codeium.vim"
+        use {"Exafunction/codeium.vim", tag = "1.8.30"}
 
         if is_bootstrap then
             require("packer").sync()

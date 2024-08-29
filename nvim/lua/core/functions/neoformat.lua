@@ -2,7 +2,7 @@ NeoformatEnabled = false
 local function enableNeoFormatOnSave()
     local group = vim.api.nvim_create_augroup("Neoformat", {clear = false})
     vim.api.nvim_create_autocmd(
-        {"BufWritePre * undojoin"},
+        {"BufWritePre"},
         {
             pattern = {"*.go,*.js,*.ts,*.jsx,*.tsx,*.vue,*.scss,*.rb,*.json,*.ru,*.css,*.lua"},
             command = "silent Neoformat",

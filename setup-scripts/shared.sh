@@ -3,8 +3,8 @@
 set -e
 
 NODE_VERSION="18.17.0"
-PYTHON_VERSION="3.11.4"
-RUBY_VERSION="3.2.2"
+PYTHON_VERSION="3.12.5"
+RUBY_VERSION="3.3.4"
 
 install_awsctx () {
   if [[ ! -f /usr/local/bin/awsctx ]]; then
@@ -17,19 +17,10 @@ install_awsctx () {
   fi
 }
 
-install_doomemacs () {
-  if [[ ! -f ~/.emacs.d/bin/doom ]]; then
-    echo "Installing doom emacs..."
-    git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
-  else
-    echo "Skipping doom emacs install..."
-  fi
-}
-
 install_file_structure () {
   mkdir -p ~/Documents/google-drive
   mkdir -p ~/Documents/projects
-  mkdir -p ~/Documents/work
+  # mkdir -p ~/Documents/work
 }
 
 install_gems () {
@@ -41,15 +32,10 @@ install_node_packages () {
 }
 
 install_node () {
-  if [ -d "$HOME/.nvm" ]; then
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-  fi
-
   if ! command -v nvm; then
     echo "Installing nvm..."
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+    echo "The next command will fail - restart your terminal and run this script again"
   else
     echo "Skipping nvm install..."
   fi
@@ -68,6 +54,7 @@ install_python () {
     echo "Installing python $PYTHON_VERSION..."
     pyenv install $PYTHON_VERSION
     pyenv global $PYTHON_VERSION
+    pipx install posting
   else
     echo "Skipping python version install..."
   fi
@@ -96,7 +83,6 @@ install_zsh () {
 
 main () {
   install_awsctx
-  # install_doomemacs
   install_file_structure
   install_node
   install_python

@@ -1,7 +1,7 @@
 -- Monitor Names
 local laptop = "857650FE-4FF4-B708-4EB4-CF1E95BC3506"
-local verticalLeft = "AE52F452-76DD-4943-80F4-9B86B1778091"
-local verticalRight = "5847BB44-5FA4-42B0-9238-A5BDC6A76CDA"
+local verticalLeft = "5847BB44-5FA4-42B0-9238-A5BDC6A76CDA"
+local verticalRight = "AE52F452-76DD-4943-80F4-9B86B1778091"
 local horizontal = "9FE3B6281-FA3A-4ACB-929A-C50E4A827FB4"
 
 for _, item in pairs(hs.screen.allScreens()) do
@@ -44,7 +44,7 @@ DevLayout1 = {
         {"Figma", nil, PrimaryMonitor, hs.layout.left50, nil, nil},
         -- {"Safari", nil, PrimaryMonitor, hs.layout.left50, nil, nil},
         {"Messages", nil, PrimaryMonitor, hs.layout.right50, nil, nil},
-        {"Spotify", nil, PrimaryMonitor, hs.layout.left50, nil, nil}
+        {"Spotify", nil, RightMonitor, lower50, nil, nil}
     }
 }
 
@@ -57,11 +57,11 @@ DevLayout3 = {
         {"kitty", nil, PrimaryMonitor, right70, nil, nil},
         {"MongoDB Compass", nil, PrimaryMonitor, left30, nil, nil},
         {"Tandem", nil, RightMonitor, lower50, nil, nil},
-        {"Slack", nil, RightMonitor, upper50, nil, nil},
+        {"Slack", nil, RightMonitor, hs.layout.maximized, nil, nil},
         {"Figma", nil, PrimaryMonitor, left30, nil, nil},
         -- {"Safari", nil, PrimaryMonitor, hs.layout.left50, nil, nil},
         {"Messages", nil, PrimaryMonitor, hs.layout.right50, nil, nil},
-        {"Spotify", nil, PrimaryMonitor, hs.layout.left50, nil, nil}
+        {"Spotify", nil, RightMonitor, hs.layout.maximized, nil, nil}
     }
 }
 
@@ -78,7 +78,7 @@ DevLayout2 = {
         {"Figma", nil, PrimaryMonitor, hs.layout.left50, nil, nil},
         -- {"Safari", nil, PrimaryMonitor, hs.layout.left50, nil, nil},
         {"Messages", nil, PrimaryMonitor, hs.layout.right50, nil, nil},
-        {"Spotify", nil, PrimaryMonitor, hs.layout.left50, nil, nil}
+        {"Spotify", nil, RightMonitor, hs.layout.maximized, nil, nil}
     }
 }
 
