@@ -1,3 +1,10 @@
+if [ ! "$(command -v aescrypt)" ]; then
+  if [ "$(command -v paescrypt)" ]; then
+    echo "Insert password to update paescrypt to aescrypt symlink:"
+    sudo ln -sf $(which paescrypt) /usr/local/bin/aescrypt
+  fi
+fi
+
 encryptionkey(){echo $(bw get item 'cli-encryption-password' | jq '.notes' --raw-output)}
 bitwarden() {
   local command="$(bw unlock | grep "$ export")"

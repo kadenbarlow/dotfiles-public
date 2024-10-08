@@ -30,14 +30,6 @@
       },
       {
         "language": "javascript",
-        "path": "./cypress.json"
-      },
-      {
-        "language": "typescript",
-        "path": "./cypress.json"
-      },
-      {
-        "language": "javascript",
         "path": "./javascript.json"
       },
       {

@@ -1,0 +1,3 @@
+eslint.config.mjs
+lint-staged.config.mjs
+prettier.config.mjs

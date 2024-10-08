@@ -12,7 +12,7 @@ lsp.ensure_installed(
         "jsonls",
         "lua_ls",
         "solargraph",
-        "tsserver",
+        "ts_ls",
         "yamlls"
     }
 )
@@ -169,45 +169,69 @@ cmp.setup(
     }
 )
 
-local function organize_imports()
-    local params = {
-        command = "_typescript.organizeImports",
-        arguments = {vim.api.nvim_buf_get_name(0)},
-        title = ""
-    }
-    vim.lsp.buf.execute_command(params)
-end
-
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-require("lspconfig").tsserver.setup {
-    on_attach = function(_, bufnr)
-        vim.api.nvim_create_autocmd(
-            "BufWritePre",
-            {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    vim.cmd("OrganizeImports")
-                end
-            }
-        )
-    end,
-    commands = {
-        OrganizeImports = {
-            organize_imports,
-            description = "Organize Imports"
-        }
-    }
-}
-
 require("lspconfig").eslint.setup {
     on_init = function(client)
         local path = client.workspace_folders[1].name
-        if string.find(path, "projects/test") then
+        if string.find(path, "projects/applause-") then
             local bin = os.getenv("NVM_BIN")
             client.config.settings.nodePath = bin .. "/../lib/node_modules"
             client.notify("workspace/didChangeConfiguration", {settings = client.config.settings})
         end
         return true
+    end,
+    on_attach = function(client, bufnr)
+        local path = client.workspace_folders[1].name
+        if not string.find(path, "projects/applause-") then
+            vim.api.nvim_create_autocmd(
+                "BufWritePre",
+                {
+                    buffer = bufnr,
+                    command = "EslintFixAll"
+                }
+            )
+        end
     end
 }
+
+local group = vim.api.nvim_create_augroup("__env", {clear = true})
+vim.api.nvim_create_autocmd(
+    "BufEnter",
+    {
+        pattern = ".env",
+        group = group,
+        callback = function(args)
+            vim.diagnostic.disable(args.buf)
+        end
+    }
+)
+
+-- local function organize_imports()
+--     local params = {
+--         command = "_typescript.organizeImports",
+--         arguments = {vim.api.nvim_buf_get_name(0)},
+--         title = ""
+--     }
+--     vim.lsp.buf.execute_command(params)
+-- end
+
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+-- require("lspconfig").tsserver.setup {
+--     on_attach = function(_, bufnr)
+--         vim.api.nvim_create_autocmd(
+--             "BufWritePre",
+--             {
+--                 group = augroup,
+--                 buffer = bufnr,
+--                 callback = function()
+--                     vim.cmd("OrganizeImports")
+--                 end
+--             }
+--         )
+--     end,
+--     commands = {
+--         OrganizeImports = {
+--             organize_imports,
+--             description = "Organize Imports"
+--         }
+--     }
+-- }

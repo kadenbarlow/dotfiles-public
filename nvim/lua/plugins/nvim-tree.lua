@@ -7,6 +7,9 @@ require("nvim-tree").setup(
         filters = {
             dotfiles = false
         },
-        sync_root_with_cwd = true
+        sync_root_with_cwd = true,
+        view = {
+            width = 60
+        }
     }
 )

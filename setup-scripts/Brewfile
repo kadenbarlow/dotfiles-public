@@ -30,6 +30,8 @@ cask 'visual-studio-code'
 # cask 'virtualbox'
 cask 'zoom'
 
+brew 'aescrypt-packetizer'
+brew 'atuin'
 brew 'bat' # syntax highlighting for cat
 brew 'bitwarden-cli'
 brew 'chrome-cli'
@@ -55,6 +57,7 @@ brew 'pyenv'
 brew 'rbenv'
 brew 'ripgrep'
 brew 'reattach-to-user-namespace' # copy and paste in tmux
+brew 'shfmt'
 brew 'tldr' # tldr of the man pages
 brew 'tree'
 brew 'tmux'

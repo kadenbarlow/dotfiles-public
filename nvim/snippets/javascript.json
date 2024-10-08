@@ -28,5 +28,15 @@
       "})"
     ],
     "description": "Inserts code needed to make a request with fetch"
+  },
+  "reduceWithFunction": {
+    "prefix": ["reduce", "rwf"],
+    "body": ["reduce((prevVal, $1) => { $0 })"],
+    "description": "Inserts a reduce function call with a function body"
+  },
+  "reduceWithObject": {
+    "prefix": ["rwo"],
+    "body": ["reduce((prevVal, $1) => ({ $0 }))"],
+    "description": "Inserts a reduce function call with a function body"
   }
 }

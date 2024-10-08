@@ -157,5 +157,9 @@ run = 'move-node-to-workspace S'
 if.app-id = 'com.apple.MobileSMS'
 run = 'move-node-to-workspace P'
 
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace O'
+
 [workspace-to-monitor-force-assignment]
 O = 'secondary'

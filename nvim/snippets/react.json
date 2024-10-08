@@ -1,34 +1,4 @@
 {
-  "newReactComponent": {
-    "prefix": ["rc", "reactcomponent"],
-    "body": [
-      "export interface I${1:${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}}Props {",
-      "  $2",
-      "};",
-      "",
-      "export default function $1(props: I$1Props) {",
-      "  return $0",
-      "};"
-    ],
-    "description": "Creates a stateless React component as a named function"
-  },
-  "useImportedStyleClassName": {
-    "prefix": ["st"],
-    "body": ["className={style.${1:name}}"],
-    "description": "Expands className with style prefilled from imported style file.\n"
-  },
-  "useMaterialIcon": {
-    "prefix": ["micon"],
-    "body": ["import $1 from '@mui/icons-material/${1:MailOutline}';"],
-    "description": "Expands import for material icon in a way to easily search through icons"
-  },
-  "figmaSendAsync": {
-    "prefix": ["fsa", "sendAsync"],
-    "body": [
-      "await io.sendAsync({ event: \"$1\", responseEvent: \"$1Response\" })"
-    ],
-    "description": "Sends an async message to Figma sandbox and await response"
-  },
   "useState": {
     "prefix": ["us", "useState", "hooks.useState"],
     "body": [

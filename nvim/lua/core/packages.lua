@@ -19,20 +19,18 @@ packer.startup(
     function(use)
         -- Plugins needed by all other plugins
         use "wbthomason/packer.nvim" -- Have packer manage itself
-        use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins required by several other plugins listed
+        use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins listed below
 
         -- Telescope Plugins
         use {"nvim-telescope/telescope.nvim", tag = "0.1.4"} -- all things searching
         use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"} -- better fuzzy searching than native telescope
         use "nvim-telescope/telescope-live-grep-args.nvim" -- pass arguments into telescope for limiting file type or directory
         use "princejoogie/dir-telescope.nvim" -- used in <leader>sd and <leader>pd to have an interactive picker for searching a specific directory for text or file
-        use "tom-anders/telescope-vim-bookmarks.nvim" -- telescope plugin to search bookmarks
 
         -- Navigation Plugins
-        use "MattesGroeger/vim-bookmarks" -- lets you annotate bookmarks across files, likes marks but globally
-        use "christoomey/vim-tmux-navigator" -- lets you navigate to tmux windows with normal vim bindings
         use "phaazon/hop.nvim" -- lets you jump to char by highlight all options in buffer and providing key combo to jump
         use "ThePrimeagen/harpoon" -- jump between several files in use currently
+        use "stevearc/oil.nvim" -- edit file tree from a buffer
 
         -- Plugins for modifying and changing text
         use "tpope/vim-surround" -- change those quotes or braces
@@ -44,7 +42,6 @@ packer.startup(
         use "ThePrimeagen/refactoring.nvim" -- refactor code and add debug statements
         use "Wansmer/treesj" -- uses treesitter to join and split lines
         use "AndrewRadev/splitjoin.vim" -- fallback if treesitter doesn't work for joining and splitting lines
-        use "godlygeek/tabular" -- format text by aligning on specified delimiters
         use "chrisbra/NrrwRgn" -- edit a single region of text
         use "laytan/cloak.nvim" -- hide sensitive text in files
 
@@ -53,14 +50,13 @@ packer.startup(
         use "windwp/nvim-ts-autotag" -- html tag autoclose and refactoring
         use "echasnovski/mini.pairs" -- add closing braces and quotes automatically
         use "andymass/vim-matchup" -- fix % operator to work in languages with weird syntax (like ruby...)
-        use "lukas-reineke/indent-blankline.nvim" -- add indentation guides to make it easier to spot pairs
         use "maxmellon/vim-jsx-pretty" -- jsx indentation and highlighting
-        use "sbdchd/neoformat" -- autoformatting files
+        use "mhartington/formatter.nvim" -- auto format code on save
 
         -- Plugins for making the editor look nice
         use "norcalli/nvim-colorizer.lua" -- highlight hex values in buffer with colors
         use {"nvim-tree/nvim-web-devicons", commit = "313d9e7193354c5de7cdb1724f9e2d3f442780b0"} -- icons in file exporer and statusbar
-        use "nvim-tree/nvim-tree.lua" -- file explorer sidebar
+        use {"nvim-tree/nvim-tree.lua", commit = "f9ff00bc06d7cb70548a3847d7a2a05e928bc988"} -- file explorer sidebar
         use "mbbill/undotree" -- visual undotree
         use {"kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async"} -- visual folding
         use "luukvbaal/statuscol.nvim" -- Used to make folding on the sidebar look good required by nvim-ufo

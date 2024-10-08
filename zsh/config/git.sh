@@ -25,7 +25,6 @@ alias gl="git pull"
 alias grh="git reset --hard origin/\$(current_branch)"
 alias grs="git reset --soft HEAD^"
 alias gs="git status"
-#alias pr="gh pr create --template ~/.dotfiles/git/pull-request-template.txt"
 
 alias b="git branch"
 alias bc="git checkout -b"
@@ -61,7 +60,7 @@ alias gbDs="git fetch -p && git branch -vv | cat >/tmp/all_branches && \
             ruby -e 'while l = gets; \
                         system(\"git branch -D #{l.strip[/(^([A-Za-z]|\d|\-|\/|_)*) /,1]}\"); \
                       end' </tmp/all_branches"
-alias xDb="gbds"
+alias xDb="gbDs"
 
 alias gh-delete-caches="gh cache list | awk '{print \$1}' | xargs -L 1 gh cache delete"
 

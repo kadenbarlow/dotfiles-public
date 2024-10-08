@@ -2,7 +2,6 @@ local telescope = require("telescope")
 local lga_actions = require("telescope-live-grep-args.actions")
 
 telescope.load_extension("dir")
-telescope.load_extension("vim_bookmarks")
 telescope.setup(
     {
         defaults = {

@@ -20,10 +20,6 @@ function FindRecentFiles()
     builtin.oldfiles({previewer = false})
 end
 
-function SearchBookmarks()
-    telescope.extensions.vim_bookmarks.all()
-end
-
 function SearchBuffers()
     builtin.buffers({previewer = false})
 end
