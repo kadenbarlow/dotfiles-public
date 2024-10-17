@@ -1,7 +1,8 @@
 local obj = {}
 obj.__index = obj
 
-local entity_id = "light.basement_lights_light"
+local officeLightsEntityId = "switch.office_main_lights"
+local officeFanEntityId = "fan.office_ceiling_fan"
 hs.settings.set("secrets", hs.json.read("~/.dotfiles/hammerspoon/secrets.json"))
 
 function obj:apiToken()
@@ -14,10 +15,10 @@ end
 
 function obj:toggleOfficeLights()
     hs.http.asyncPost(
-        "http://192.168.0.60:8123/api/services/light/toggle",
+        "http://homeassistant.local:8123/api/services/switch/toggle",
         hs.json.encode(
             {
-                ["entity_id"] = entity_id
+                ["entity_id"] = officeLightsEntityId
             }
         ),
         {
@@ -30,13 +31,12 @@ function obj:toggleOfficeLights()
     )
 end
 
-function obj:updateOfficeLightsBrightness(delta)
+function obj:toggleOfficeFan()
     hs.http.asyncPost(
-        "http://192.168.0.60:8123/api/services/light/turn_on",
+        "http://homeassistant.local:8123/api/services/fan/toggle",
         hs.json.encode(
             {
-                ["entity_id"] = entity_id,
-                ["brightness_step_pct"] = delta
+                ["entity_id"] = officeFanEntityId
             }
         ),
         {
@@ -47,14 +47,6 @@ function obj:updateOfficeLightsBrightness(delta)
             print(body)
         end
     )
-end
-
-function obj:increaseOfficeLightsBrightness()
-    obj:updateOfficeLightsBrightness(30)
-end
-
-function obj:decreaseOfficeLightsBrightness()
-    obj:updateOfficeLightsBrightness(-30)
 end
 
 return obj

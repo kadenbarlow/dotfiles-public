@@ -1,8 +1,8 @@
 -- Automatically install packer
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-local is_bootstrap = false
+local isBootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    is_bootstrap = true
+    isBootstrap = true
     vim.fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
     vim.cmd [[packadd packer.nvim]]
 end
@@ -91,13 +91,13 @@ packer.startup(
 
         use {"Exafunction/codeium.vim", tag = "1.8.30"}
 
-        if is_bootstrap then
+        if isBootstrap then
             require("packer").sync()
         end
     end
 )
 
-if is_bootstrap then
+if isBootstrap then
     print "=================================="
     print "Installing packer and plugins."
     print "Wait until packer completes,"

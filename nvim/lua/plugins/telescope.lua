@@ -5,9 +5,49 @@ telescope.load_extension("dir")
 telescope.setup(
     {
         defaults = {
-            path_display = {
-                "truncate"
-            }
+            border = false,
+            color_devicons = true,
+            entry_prefix = "",
+            layout_config = {
+                anchor = "N",
+                bottom_pane = {
+                    height = 15,
+                    preview_cutoff = 120,
+                    prompt_position = "bottom"
+                }
+                -- anchor = "S",
+                -- center = {
+                --     height = 0.25,
+                --     preview_cutoff = 40,
+                --     prompt_position = "bottom",
+                --     width = {padding = 0} -- 100%
+                -- }
+            },
+            -- layout_strategy = "center",
+            layout_strategy = "bottom_pane",
+            multi_icon = "",
+            path_display = function(opts, path)
+                local path_parts = {}
+                local index = 1
+                for part in string.gmatch(path, "[^" .. "/" .. "]+") do
+                    path_parts[index] = part
+                    index = index + 1
+                end
+                local file_name =
+                    path_parts[#path_parts - 1] and path_parts[#path_parts - 1] .. "/" .. path_parts[#path_parts] or
+                    path_parts[#path_parts]
+                return string.format("%s (%s)", file_name, path)
+            end,
+            -- path_display = {
+            --     shorten = {len = 2, exclude = {-2, -1}}
+            --     -- "smart"
+            -- },
+            preview = {msg_bg_fillchar = " "},
+            preview_title = "",
+            prompt_prefix = "",
+            prompt_title = "",
+            results_title = "",
+            selection_caret = ""
         },
         pickers = {
             find_files = {

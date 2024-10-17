@@ -111,9 +111,6 @@ map("n", "<leader>h4", ":lua require('harpoon.ui').nav_file(4)<CR>", "[H]arpoon 
 
 map("n", "<leader>ot", OpenTerminal, "[O]pen [T]erminal")
 
-map("n", "mm", ":BookmarkAnnotate<CR>", "[M]ark Book[M]ark")
-map("n", "md", ":BookmarkClear<CR>", "[M]ark [D]elete")
-
 map("v", "J", ":m '>+1<CR>gv=gv", "move selected lines down [J]")
 map("v", "K", ":m '<-2<CR>gv=gv", "move selected lines up [K]")
 map("n", "J", "mzJ`z", "move the line below [J] up to the end of current line")

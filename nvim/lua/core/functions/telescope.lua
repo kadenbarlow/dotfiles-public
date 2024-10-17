@@ -25,7 +25,7 @@ function SearchBuffers()
 end
 
 function SearchProjectFileContents()
-    telescope.extensions.live_grep_args.live_grep_args()
+    telescope.extensions.live_grep_args.live_grep_args({previewer = false})
 end
 
 function SearchForHtmlUsagesInProject()
