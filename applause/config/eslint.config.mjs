@@ -20,6 +20,8 @@ export default [
 			// "sort-keys": "warn",
 			"sort-destructure-keys/sort-destructure-keys": "warn",
 			"no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
+			"react/jsx-uses-react": "error",
+			"react/jsx-uses-vars": "error",
 			"unused-imports/no-unused-imports": "error",
 			"unused-imports/no-unused-vars": [
 				"warn",
