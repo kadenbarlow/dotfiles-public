@@ -1,3 +1,5 @@
+export NODE_OPTIONS="--require $HOME/.dotfiles/noderc.js"
+
 autoload -U add-zsh-hook
 load-nvmrc() {
   local node_version="$(nvm version)"

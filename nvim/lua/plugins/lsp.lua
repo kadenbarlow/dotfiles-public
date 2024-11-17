@@ -172,7 +172,9 @@ cmp.setup(
 require("lspconfig").eslint.setup {
     on_init = function(client)
         local path = client.workspace_folders[1].name
-        if string.find(path, "projects/applause-") then
+        local f = io.open(path .. "/.kaden/eslint.global", "r")
+        if f ~= nil then
+            io.close(f)
             local bin = os.getenv("NVM_BIN")
             client.config.settings.nodePath = bin .. "/../lib/node_modules"
             client.notify("workspace/didChangeConfiguration", {settings = client.config.settings})
@@ -181,7 +183,10 @@ require("lspconfig").eslint.setup {
     end,
     on_attach = function(client, bufnr)
         local path = client.workspace_folders[1].name
-        if not string.find(path, "projects/applause-") then
+        local f = io.open(path .. "/.kaden/eslint.disableAutoFix", "r")
+        if f ~= nil then
+            io.close(f)
+        else
             vim.api.nvim_create_autocmd(
                 "BufWritePre",
                 {

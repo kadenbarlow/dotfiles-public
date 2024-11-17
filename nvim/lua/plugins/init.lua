@@ -6,7 +6,7 @@ require("plugins.codeium")
 require("plugins.formatter")
 require("plugins.hop")
 require("plugins.lsp")
-require("plugins.nvim-tree")
+require("plugins.neotree") -- this needs to come last
 require("plugins.oil")
 require("plugins.pairs")
 require("plugins.refactoring")

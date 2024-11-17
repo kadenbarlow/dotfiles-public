@@ -30,7 +30,7 @@ source ~/.dotfiles/zsh/config/git.sh
 source ~/.dotfiles/zsh/config/go.sh
 source ~/.dotfiles/zsh/config/kubernetes.sh
 source ~/.dotfiles/zsh/config/navigation.sh
-source ~/.dotfiles/zsh/config/nvm.sh
+source ~/.dotfiles/zsh/config/node.sh
 source ~/.dotfiles/zsh/config/ruby.sh
 
 bindkey -s ^f "~/.dotfiles/zsh/config/tmux-sessionizer.sh\n"

@@ -47,35 +47,22 @@ alias za="git stash apply"
 alias zk="git stash drop"
 alias zz="git stash save"
 
-alias gbds="git fetch -p && git branch -vv | \
-            grep gone >/tmp/merged_branches && \
+alias gbds="git fetch -p &&  \
+            git branch --merged master >/tmp/merged_branches && \
             vim /tmp/merged_branches && \
-            ruby -e 'while l = gets; \
-                        system(\"git branch -D #{l.strip[/(^([A-Za-z]|\d|\-|\/|_)*) /,1]}\"); \
-                      end' </tmp/merged_branches"
+            cat /tmp/merged_branches | \
+            xargs -I {branch} git branch -D {branch}"
+
 alias xdb="gbds"
 
-alias gbDs="git fetch -p && git branch -vv | cat >/tmp/all_branches && \
+alias gbDs="git fetch -p &&  \
+            git branch >/tmp/all_branches && \
             vim /tmp/all_branches && \
-            ruby -e 'while l = gets; \
-                        system(\"git branch -D #{l.strip[/(^([A-Za-z]|\d|\-|\/|_)*) /,1]}\"); \
-                      end' </tmp/all_branches"
+            cat /tmp/all_branches | \
+            xargs -I {branch} git branch -D {branch}"
+
 alias xDb="gbDs"
 
 alias gh-delete-caches="gh cache list | awk '{print \$1}' | xargs -L 1 gh cache delete"
-
-function gpsur() {
-  local output
-  output=$(git push --set-upstream origin "$(current_branch)" 2>&1)
-  echo "$output"
-
-  local url
-  url=$(echo "$output" | grep -oE "https://.*\S")
-
-  if [[ -n $url ]]; then
-    echo "Found Pull/Merge Request URL: $url"
-    open "$url" >/dev/null 2>&1
-  fi
-}
 
 PATH="$HOME/.antigen/bundles/bigH/git-fuzzy/bin:$PATH"

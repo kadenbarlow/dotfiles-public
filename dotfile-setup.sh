@@ -5,7 +5,7 @@ mkdir -p ~/.config/posting
 mkdir -p ~/.local/share/posting
 rm -rf ~/.local/share/posting/default
 
-ln -sf $PWD/aerospace.toml ~/.aerospace.toml
+ln -sf $PWD/aerospace/aerospace.toml ~/.aerospace.toml
 ln -sf $PWD/zsh/atuin.toml ~/.config/atuin/config.toml
 ln -sf $PWD/git/gitconfig ~/.gitconfig
 ln -sf $PWD/hammerspoon ~/.hammerspoon

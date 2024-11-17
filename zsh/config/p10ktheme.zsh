@@ -34,7 +34,8 @@
     # =========================[ Line #1 ]=========================
     # os_icon               # os identifier
     dir                     # current directory
-    vcs                     # git status
+    # vcs                   # git status
+    branch_name             # git branch name
     # =========================[ Line #2 ]=========================
     newline                 # \n
     prompt_char             # prompt symbol
@@ -1767,6 +1768,10 @@
   # Type `p10k help segment` for documentation and a more sophisticated example.
   function prompt_example() {
     p10k segment -b 1 -f 3 -i '⭐' -t 'hello, %n'
+  }
+
+  function prompt_branch_name() {
+    p10k segment -b 'green' -f 'black' -e -t "$(git branch 2>/dev/null | sed -n -e 's/^\* \(.*\)/\1/p')"
   }
 
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job

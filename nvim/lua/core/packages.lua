@@ -55,9 +55,10 @@ packer.startup(
 
         -- Plugins for making the editor look nice
         use "norcalli/nvim-colorizer.lua" -- highlight hex values in buffer with colors
-        use {"nvim-tree/nvim-web-devicons", commit = "313d9e7193354c5de7cdb1724f9e2d3f442780b0"} -- icons in file exporer and statusbar
-        use {"nvim-tree/nvim-tree.lua", commit = "f9ff00bc06d7cb70548a3847d7a2a05e928bc988"} -- file explorer sidebar
+        use {"nvim-tree/nvim-web-devicons"} -- icons in file exporer and statusbar
+        use {"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", requires = {"MunifTanjim/nui.nvim"}}
         use "mbbill/undotree" -- visual undotree
+        use "pixelastic/vim-undodir-tree" -- fix undo file names being too long
         use {"kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async"} -- visual folding
         use "luukvbaal/statuscol.nvim" -- Used to make folding on the sidebar look good required by nvim-ufo
         use {"catppuccin/nvim", as = "catppuccin"} -- colorscheme

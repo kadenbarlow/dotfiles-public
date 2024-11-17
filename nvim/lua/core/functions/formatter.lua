@@ -4,7 +4,9 @@ local function enableFormattingOnSave()
     vim.api.nvim_create_autocmd(
         {"BufWritePost"},
         {
-            pattern = {"*.go,*.js,*.ts,*.jsx,*.tsx,*.vue,*.scss,*.rb,*.json,*.ru,*.css,*.lua,*.graphql,*.sh"},
+            pattern = {
+                "*.go,*.js,*.mjs,*.cjs,*.ts,*.jsx,*.tsx,*.vue,*.scss,*.rb,*.json,*.ru,*.css,*.lua,*.graphql,*.sh"
+            },
             command = "silent FormatWrite",
             group = group
         }

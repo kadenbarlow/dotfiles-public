@@ -234,6 +234,13 @@ module.square = function()
     grid.set(this.window, cell, this.screen)
 end
 
+module.squareAndCenterOnScreen = function()
+    local this = windowMeta.new()
+    local cell = Cell(0, 0, 0.5 * this.screenGrid.w, 0.66 * this.screenGrid.h)
+    grid.set(this.window, cell, this.screen)
+    this.window:centerOnScreen(this.screen)
+end
+
 module.rightToLeft = function()
     local this = windowMeta.new()
     local cell = Cell(this.windowGrid.x, this.windowGrid.y, this.windowGrid.w - 1, this.windowGrid.h)

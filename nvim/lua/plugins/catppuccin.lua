@@ -13,7 +13,12 @@ local ctp_feline = require("catppuccin.groups.integrations.feline")
 
 require("feline").setup(
     {
-        components = ctp_feline.get()
+        components = ctp_feline.get(),
+        force_inactive = {
+            filetypes = {
+                "^neo%-tree$"
+            }
+        }
     }
 )
 

@@ -38,5 +38,10 @@
     "prefix": ["rwo"],
     "body": ["reduce((prevVal, $1) => ({ $0 }))"],
     "description": "Inserts a reduce function call with a function body"
+  },
+  "unique": {
+    "prefix": ["unique"],
+    "body": ["filter((value, index, array) => array.indexOf(value) === index)"],
+    "description": "Inserts filter, indexOf, calls to unique an array"
   }
 }

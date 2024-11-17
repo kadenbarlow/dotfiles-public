@@ -133,6 +133,8 @@ alt-cmd-w = ['move-node-to-workspace W', 'workspace W']
 alt-cmd-semicolon = 'mode service' # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 cmd-ctrl-alt-shift-quote = 'mode service' # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 
+alt-space = 'exec-and-forget open -a "Kitty"'
+
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
@@ -146,12 +148,34 @@ cmd-ctrl-alt-shift-k = ['join-with up', 'mode main']
 cmd-ctrl-alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+check-further-callbacks = true
+run = 'move-node-to-workspace W'
+
+[[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
+run = 'move-node-to-workspace W'
+
+[[on-window-detected]]
+if.app-id = 'com.tinyapp.TablePlus'
 run = 'move-node-to-workspace W'
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace S'
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.Music'
+run = 'move-node-to-workspace S'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.podcasts'
+run = 'move-node-to-workspace S'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+check-further-callbacks = true
+run = 'move-node-to-workspace P'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
@@ -163,3 +187,12 @@ run = 'move-node-to-workspace O'
 
 [workspace-to-monitor-force-assignment]
 O = 'secondary'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+if.app-name-regex-substring = 'settings'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.window-title-regex-substring = 'Bitwarden'
+run = ['layout floating']

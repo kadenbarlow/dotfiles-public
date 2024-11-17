@@ -65,6 +65,7 @@ require("ufo").setup(
 local builtin = require("statuscol.builtin")
 require("statuscol").setup(
     {
+        ft_ignore = {"neo-tree"},
         relculright = true,
         segments = {
             {sign = {name = {"Diagnostic"}, maxwidth = 1}},
