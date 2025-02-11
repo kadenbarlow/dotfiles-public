@@ -7,15 +7,8 @@ NVM_DIR="$HOME/.nvm"
 packages=(
   eslint
   eslint_d
-  eslint-plugin-perfectionist
-  eslint-plugin-react
-  eslint-plugin-sort-destructure-keys
-  eslint-plugin-unused-imports
-  lint-staged
   lua-fmt
-  prettier
   yarn
-  @trivago/prettier-plugin-sort-imports
 )
 
 for package in ${packages[@]}; do

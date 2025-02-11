@@ -25,12 +25,12 @@ setopt share_history
 source ~/.dotfiles/zsh/config/aescrypt.sh
 source ~/.dotfiles/zsh/config/aliases.sh
 source ~/.dotfiles/zsh/config/aws.sh
-# source ~/.dotfiles/zsh/config/fzf-tab.sh
 source ~/.dotfiles/zsh/config/git.sh
 source ~/.dotfiles/zsh/config/go.sh
 source ~/.dotfiles/zsh/config/kubernetes.sh
 source ~/.dotfiles/zsh/config/navigation.sh
 source ~/.dotfiles/zsh/config/node.sh
 source ~/.dotfiles/zsh/config/ruby.sh
+source ~/.dotfiles/zsh/config/tmux.sh
 
 bindkey -s ^f "~/.dotfiles/zsh/config/tmux-sessionizer.sh\n"

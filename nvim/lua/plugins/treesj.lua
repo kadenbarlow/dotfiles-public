@@ -7,6 +7,7 @@ require("treesj").setup(
         max_join_length = 1000 -- just a really large number so there are no restrictions
     }
 )
+
 vim.api.nvim_create_autocmd(
     {"FileType"},
     {

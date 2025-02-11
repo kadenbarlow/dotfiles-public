@@ -1,3 +1,6 @@
+# Ignore custom neovim config
+.neovim
+
 # Ignore these if Mac creates them
 .DS_Store
 

@@ -15,15 +15,7 @@ telescope.setup(
                     preview_cutoff = 120,
                     prompt_position = "bottom"
                 }
-                -- anchor = "S",
-                -- center = {
-                --     height = 0.25,
-                --     preview_cutoff = 40,
-                --     prompt_position = "bottom",
-                --     width = {padding = 0} -- 100%
-                -- }
             },
-            -- layout_strategy = "center",
             layout_strategy = "bottom_pane",
             multi_icon = "",
             path_display = function(opts, path)
@@ -38,10 +30,6 @@ telescope.setup(
                     path_parts[#path_parts]
                 return string.format("%s (%s)", file_name, path)
             end,
-            -- path_display = {
-            --     shorten = {len = 2, exclude = {-2, -1}}
-            --     -- "smart"
-            -- },
             preview = {msg_bg_fillchar = " "},
             preview_title = "",
             prompt_prefix = "",
@@ -79,6 +67,5 @@ require("dir-telescope").setup(
     {
         hidden = false,
         show_preview = false
-        -- no_ignore = false,
     }
 )

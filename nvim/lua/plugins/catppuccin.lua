@@ -5,12 +5,9 @@ require("catppuccin").setup(
         term_colors = true -- sets terminal colors (e.g. `g:terminal_color_0`)
     }
 )
-
--- setup must be called before loading
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme("catppuccin")
 
 local ctp_feline = require("catppuccin.groups.integrations.feline")
-
 require("feline").setup(
     {
         components = ctp_feline.get(),

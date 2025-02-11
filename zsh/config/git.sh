@@ -26,6 +26,18 @@ alias grh="git reset --hard origin/\$(current_branch)"
 alias grs="git reset --soft HEAD^"
 alias gs="git status"
 
+function review() {
+  git fetch
+  gh pr checkout --detach "$1"
+  local base="$(gh pr view $1 --json baseRefName | jq -r '.baseRefName')"
+  echo "$base" >/tmp/git-comment-base.txt
+
+  git rev-parse HEAD >/tmp/git-comment-sha.txt
+  git merge "origin/$base" -m "PR #$1 Review"
+  echo "$1" >/tmp/git-comment-pr.txt
+  gh pr view "$1"
+}
+
 alias b="git branch"
 alias bc="git checkout -b"
 alias bx="git branch -d"
@@ -48,18 +60,18 @@ alias zk="git stash drop"
 alias zz="git stash save"
 
 alias gbds="git fetch -p &&  \
-            git branch --merged master >/tmp/merged_branches && \
-            vim /tmp/merged_branches && \
-            cat /tmp/merged_branches | \
-            xargs -I {branch} git branch -D {branch}"
+  git branch --merged master >/tmp/merged_branches && \
+  vim /tmp/merged_branches && \
+  cat /tmp/merged_branches | \
+  xargs -I {branch} git branch -D {branch}"
 
 alias xdb="gbds"
 
 alias gbDs="git fetch -p &&  \
-            git branch >/tmp/all_branches && \
-            vim /tmp/all_branches && \
-            cat /tmp/all_branches | \
-            xargs -I {branch} git branch -D {branch}"
+  git branch >/tmp/all_branches && \
+  vim /tmp/all_branches && \
+  cat /tmp/all_branches | \
+  xargs -I {branch} git branch -D {branch}"
 
 alias xDb="gbDs"
 

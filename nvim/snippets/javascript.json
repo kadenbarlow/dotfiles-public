@@ -39,6 +39,11 @@
     "body": ["reduce((prevVal, $1) => ({ $0 }))"],
     "description": "Inserts a reduce function call with a function body"
   },
+  "regexMatchAll": {
+    "prefix": ["regexMatchAll", "matchAll", "match"],
+    "body": ["[...$1.matchAll(/$2/g)]"],
+    "description": "Inserts array of matches from expanded matchAll function including capture groups"
+  },
   "unique": {
     "prefix": ["unique"],
     "body": ["filter((value, index, array) => array.indexOf(value) === index)"],

@@ -3,7 +3,7 @@ local homeAutomation = require("home_automation")
 local monitors = require("monitors")
 
 monitors.applyLayout()
-monitors.watch()
+-- monitors.watch()
 
 local hyper = {"cmd", "ctrl", "alt", "shift"}
 local secondary = {"cmd", "alt"}

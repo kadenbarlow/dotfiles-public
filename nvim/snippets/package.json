@@ -43,6 +43,10 @@
       {
         "language": "typescriptreact",
         "path": "./javascript.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./applause.json"
       }
     ]
   }

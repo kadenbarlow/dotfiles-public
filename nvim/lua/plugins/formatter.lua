@@ -2,6 +2,22 @@
 -- local enableEslint = (not string.find(cwd, "projects/applause-"))
 -- enableEslint and require("formatter.filetypes.javascript").eslint_d or nil
 
+local util = require "formatter.util"
+local function rubocop()
+  return {
+    exe = "rubocop",
+    args = {
+      "--autocorrect-all",
+      "--stdin",
+      util.escape_path(util.get_current_buffer_file_name()),
+      "--format",
+      "files",
+      "--stderr",
+    },
+    stdin = true,
+  }
+end
+
 require("formatter").setup {
     logging = true,
     log_level = vim.log.levels.WARN,
@@ -15,7 +31,7 @@ require("formatter").setup {
         typescript = {require("formatter.filetypes.typescript").prettier},
         typescriptreact = {require("formatter.filetypes.typescriptreact").prettier},
         lua = {require("formatter.filetypes.lua").luafmt},
-        ruby = {require("formatter.filetypes.ruby").rubocop},
+        ruby = {rubocop},
         sh = {require("formatter.filetypes.sh").shfmt},
         vue = {require("formatter.filetypes.vue").prettier}
     }
