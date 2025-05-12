@@ -1,19 +1,18 @@
-# Amazon Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/$HOME/.local/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 source ~/.zinit/bin/zinit.zsh
-source ~/.dotfiles/zsh/config/p10ktheme.zsh
+source ~/.dotfiles/zsh/p10ktheme.zsh
 
 zinit load atuinsh/atuin
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh
-# zinit snippet OMZ::plugins/kube-ps1/kube-ps1.plugin.zsh
 zinit snippet OMZ::plugins/tmux/tmux.plugin.zsh
 # zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-syntax-highlighting
@@ -25,8 +24,5 @@ if [ "$(uname 2> /dev/null)" != "Linux" ]; then
   zinit ice depth=1; zinit light romkatv/powerlevel10k
 fi
 
-source ~/.dotfiles/zsh/config.sh
+source ~/.dotfiles/zsh/config/config.sh
 source ~/.work.sh
-
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"

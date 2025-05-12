@@ -1,9 +1,7 @@
 {
   "useState": {
     "prefix": ["us", "useState", "hooks.useState"],
-    "body": [
-      "const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:initialState})"
-    ],
+    "body": ["const [${1:state}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:initialState})"],
     "description": "`useState()`, Returns a stateful value, and a function to update it.\n"
   },
   "useRef": {
@@ -13,16 +11,12 @@
   },
   "useReducer": {
     "prefix": ["ur", "useReducer", "hooks.useReducer"],
-    "body": [
-      "const [state, dispatch] = useReducer(${1:reducer}, ${2:initializerArg})"
-    ],
+    "body": ["const [state, dispatch] = useReducer(${1:reducer}, ${2:initializerArg})"],
     "description": "`useReducer()`, An alternative to `useState`. Accepts a reducer of type `(state, action) => newState`, and returns the current state paired with a `dispatch` method.\n"
   },
   "useMemo": {
     "prefix": ["um", "useMemo", "hooks.useMemo"],
-    "body": [
-      "const ${1:memoizedValue} = useMemo(() => ${3:computeExpensiveValue}($2), [${2:deps}])"
-    ],
+    "body": ["const ${1:memoizedValue} = useMemo(() => ${3:computeExpensiveValue}($2), [${2:deps}])"],
     "description": "`useMemo()`, Returns a memoized value.\n"
   },
   "useEffect": {
@@ -37,11 +31,7 @@
   },
   "useCallback": {
     "prefix": ["ucb", "useCallback", "hooks.useCallback"],
-    "body": [
-      "let ${1:memoizedCallback} = useCallback(() => {",
-      "  ${3:fn($2)}",
-      "}, [${2:deps}])"
-    ],
+    "body": ["let ${1:memoizedCallback} = useCallback(() => {", "  ${3:fn($2)}", "}, [${2:deps}])"],
     "description": "`useCallback()`, Returns a memoized callback.\n"
   }
 }

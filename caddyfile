@@ -1,0 +1,23 @@
+api.localhost {
+  reverse_proxy localhost:3005
+}
+
+internal.localhost {
+  reverse_proxy localhost:3000
+}
+
+integrations.localhost {
+  reverse_proxy localhost:3007
+}
+
+monitoring.localhost {
+  reverse_proxy localhost:3011
+}
+
+mydot.localhost {
+  reverse_proxy localhost:3002
+}
+
+wakapi.localhost {
+  reverse_proxy localhost:9561
+}

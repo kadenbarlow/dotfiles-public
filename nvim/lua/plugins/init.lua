@@ -1,16 +1,16 @@
 require("plugins.catppuccin") -- enable this and comment nordic below to switch themes
 require("plugins.cmp")
 require("plugins.diffview")
+require("plugins.dadbodui")
 require("plugins.flash")
 require("plugins.formatter")
 require("plugins.lsp")
-require("plugins.neotree") -- this needs to come last
 require("plugins.oil")
 require("plugins.pairs")
 require("plugins.refactoring")
 require("plugins.snippets")
+require("plugins.splitjoin")
 require("plugins.telescope")
 require("plugins.treesitter")
-require("plugins.treesj")
 require("plugins.colorizer")
 vim.cmd.source("~/.dotfiles/nvim/lua/plugins/surround.vim")

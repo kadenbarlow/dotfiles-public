@@ -1,14 +1,15 @@
 alias dotfiles="cd ~/.dotfiles"
-alias dbg="~/.dotfiles/zsh/config/tmux-node-debugger.sh"
 alias myip="ifconfig en0 | awk '\$1 == \"inet\" {print \$2}'"
-alias lineselect="cat >/tmp/lineselect && vim /tmp/lineselect && cat /tmp/lineselect"
-alias run="npm run"
 alias scripts="jq '.scripts' package.json"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias uuid="uuidgen | awk '{print tolower(\$0)}' | pbcopy && pbpaste | cat -"
 alias vim="nvim"
 alias vi="nvim"
 alias vim-benchmarks="nvim --startuptime /dev/stdout +qall;time vim +q;"
+alias download-m4b-tool='docker pull sandreas/m4b-tool:latest'
+alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
+alias m4b-tool-merge='m4b-tool merge -v --jobs=6 --output-file="output/" --batch-pattern="input/%g/%a/%s/%p - %n/"  --batch-pattern="input/%g/%a/%n/" "input/"'
+alias yt-dl='docker run --rm -i -e PGID=$(id -g) -e PUID=$(id -u) -v "$(pwd)":/workdir:rw mikenye/youtube-dl'
 
 if [ "$(command -v eza)" ]; then
     unalias -m 'll'
@@ -24,19 +25,16 @@ if [ "$(command -v bat)" ]; then
   alias cat='bat -pp --theme="ansi"'
 fi
 
-copyssh(){ openssl rsa -in $1 | pbcopy } # decrypts an ssh key and copies to clipboard
-onport(){ lsof -i :$1 -S }
-setenv() { export $(cat $1 | xargs) }
-rgbcolors() { for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f" }
+alias documents="cd ~/Documents"
+setopt null_glob
+for i in ~/Documents/*/ ~/Documents/projects/*/ ~/Documents/work/*/; do
+  for dir in $i; do
+    dir=${dir%*/} # remove the trailing "/"
+    alias ${dir##*/}="cd ${dir}"
+  done
+done
 
-alias gitstatus="git status --porcelain"
-alias fzf-gitdiff="fzf --multi --preview \"echo {} | xargs git diff --color=always\""
-alias fzf-gitdiffstaged="fzf --multi --preview \"echo {} | xargs git diff --staged --color=always\""
-alias col2="awk '{print \$2}'"
-
-alias grm="gitstatus | fzf --multi | col2 | xargs rm -rf"
-alias gvim="vim \$(gitstatus | col2 | fzf-gitdiff)"
-alias greset="git diff --name-only --cached | fzf-gitdiffstaged | xargs git reset"
-alias gadd="git ls-files --modified | fzf-gitdiff | xargs git add"
-alias gcheckout="gitstatus | fzf-gitdiff | col2 | xargs git checkout"
-alias acme.sh="~/.acme.sh/acme.sh"
+function copyssh(){ openssl rsa -in $1 | pbcopy }
+function onport(){ lsof -i :$1 -S }
+function setenv() { export $(cat $1 | xargs) }
+function rgbcolors() { for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f" }

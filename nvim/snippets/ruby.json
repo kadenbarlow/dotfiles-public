@@ -2,7 +2,9 @@
   "add_column": {
     "prefix": "add_column",
     "description": "add_column(table_name, column_name, type, default:, null:, after:)",
-    "body": [ "add_column :${1:table_name}, :${2:column_name}, :${3:type}, default: ${4:default}, null: ${5:false}, after: :${6:column_name}" ]
+    "body": [
+      "add_column :${1:table_name}, :${2:column_name}, :${3:type}, default: ${4:default}, null: ${5:false}, after: :${6:column_name}"
+    ]
   },
   "add_foreign_key": {
     "prefix": "add_foreign_key",
@@ -21,79 +23,52 @@
   "add_timestamps": {
     "prefix": "add_timestamps",
     "description": "add_timestamps(table_name, null:)",
-    "body": [
-      "add_timestamps :${1:table_name}, null: ${2:false}"
-    ]
+    "body": ["add_timestamps :${1:table_name}, null: ${2:false}"]
   },
   "alias_attribute": {
     "prefix": "alias_attribute",
     "description": "alias_attribute(new_name, old_name)",
-    "body": [
-      "alias_attribute ${1:new_name}, ${2:old_name}"
-    ]
+    "body": ["alias_attribute ${1:new_name}, ${2:old_name}"]
   },
   "all": {
     "prefix": "all",
     "description": "all? { |var| condition }",
-    "body": [
-      "all? { |${1:var}| ${2:condition} }"
-    ]
+    "body": ["all? { |${1:var}| ${2:condition} }"]
   },
   "any": {
     "prefix": "any",
     "description": "any? { |var| condition }",
-    "body": [
-      "any? { |${1:var}| ${2:condition} }"
-    ]
+    "body": ["any? { |${1:var}| ${2:condition} }"]
   },
   "attr_accessor": {
     "prefix": "attr_accessor",
     "description": "attr_accessor(attribute)",
-    "body": [
-      "attr_accessor :${1:attribute}"
-    ]
+    "body": ["attr_accessor :${1:attribute}"]
   },
   "attr_reader": {
     "prefix": "attr_reader",
     "description": "attr_reader(attribute)",
-    "body": [
-      "attr_reader :${1:attribute}"
-    ]
+    "body": ["attr_reader :${1:attribute}"]
   },
   "attr_writer": {
     "prefix": "attr_writer",
     "description": "attr_writer(attribute)",
-    "body": [
-      "attr_writer :${1:attribute}"
-    ]
+    "body": ["attr_writer :${1:attribute}"]
   },
   "begin": {
     "prefix": "begin",
     "description": "begin rescue",
-    "body": [
-      "begin",
-      "  $0",
-      "rescue ${1:StandardError} => ${2:ex}",
-      "",
-      "end"
-    ]
+    "body": ["begin", "  $0", "rescue ${1:StandardError} => ${2:ex}", "", "end"]
   },
   "belongs_to": {
     "prefix": "belongs_to",
     "description": "belongs_to(relationship, required: class_name:)",
-    "body": [
-      "belongs_to :${1:relationship}, required: ${2:false}, class_name: \"${3:class_name}\""
-    ]
+    "body": ["belongs_to :${1:relationship}, required: ${2:false}, class_name: \"${3:class_name}\""]
   },
   "case": {
     "prefix": "case",
     "description": "case",
-    "body": [
-      "case ${1:object}",
-      "when ${2:condition}",
-      "  $0",
-      "end"
-    ]
+    "body": ["case ${1:object}", "when ${2:condition}", "  $0", "end"]
   },
   "change_column": {
     "prefix": "change_column",
@@ -105,68 +80,42 @@
   "class": {
     "prefix": "class",
     "description": "class",
-    "body": [
-      "class ${1:class_name} < ${2:ParentClass}",
-      "  $0",
-      "end"
-    ]
+    "body": ["class ${1:class_name} < ${2:ParentClass}", "  $0", "end"]
   },
   "column_exists": {
     "prefix": "column_exists",
     "description": "column_exists?(table_name, column_name)",
-    "body": [
-      "column_exists? :${1:table_name}, :${2:column_name}"
-    ]
+    "body": ["column_exists? :${1:table_name}, :${2:column_name}"]
   },
   "create_table": {
     "prefix": "create_table",
     "description": "create_table(table_name) do |t|",
-    "body": [
-      "create_table :${1:table_name} do |${2:var}|",
-      "  $0",
-      "",
-      "  t.timestamps null: false",
-      "end"
-    ]
+    "body": ["create_table :${1:table_name} do |${2:var}|", "  $0", "", "  t.timestamps null: false", "end"]
   },
   "drop_table": {
     "prefix": "drop_table",
     "description": "drop_table(table_name)",
-    "body": [
-      "drop_table :${1:table_name} if table_exists?(:${2:table_name})"
-    ]
+    "body": ["drop_table :${1:table_name} if table_exists?(:${2:table_name})"]
   },
   "drop": {
     "prefix": "drop",
     "description": "drop_table(table_name)",
-    "body": [
-      "drop_table :${1:table_name} if table_exists?(:${2:table_name})"
-    ]
+    "body": ["drop_table :${1:table_name} if table_exists?(:${2:table_name})"]
   },
   "each": {
     "prefix": "each",
     "description": "each do |var|",
-    "body": [
-      "each do |${1:var}|",
-      "  $0",
-      "end"
-    ]
+    "body": ["each do |${1:var}|", "  $0", "end"]
   },
   "each{}": {
     "prefix": "each{}",
     "description": "each{ |var| expression }",
-    "body": [
-      "each{ |${1:var}| $0 }"
-    ]
+    "body": ["each{ |${1:var}| $0 }"]
   },
   "each_with_index": {
     "prefix": "each_with_index",
     "description": "each_with_index do |var, index|",
-    "body": [
-      "each_with_index do |${1:var}, ${2:index}|",
-      "  $0",
-      "end"
-    ]
+    "body": ["each_with_index do |${1:var}, ${2:index}|", "  $0", "end"]
   },
   "has_many": {
     "prefix": "has_many",
@@ -185,92 +134,61 @@
   "Hash.new": {
     "prefix": "Hash.new",
     "description": "Hash.new { |hash, key| hash[key] = default_value }",
-    "body": [
-      "Hash.new { |hash, key| hash[key] = ${1:default_value} }"
-    ]
+    "body": ["Hash.new { |hash, key| hash[key] = ${1:default_value} }"]
   },
   "map": {
     "prefix": "map",
     "description": "map{ |var| expression }",
-    "body": [
-      "map{ |${1:var}| $0 }"
-    ]
+    "body": ["map{ |${1:var}| $0 }"]
   },
   "max": {
     "prefix": "max",
     "description": "[a, b].max",
-    "body": [
-      "[${1:a}, ${2:b}].max"
-    ]
+    "body": ["[${1:a}, ${2:b}].max"]
   },
   "min": {
     "prefix": "min",
     "description": "[a, b].min",
-    "body": [
-      "[${1:a}, ${2:b}].min"
-    ]
+    "body": ["[${1:a}, ${2:b}].min"]
   },
   "module": {
     "prefix": "module",
     "description": "module",
-    "body": [
-      "module ${1:module_name}",
-      "  $0",
-      "end"
-    ]
+    "body": ["module ${1:module_name}", "  $0", "end"]
   },
   "remove_column": {
     "prefix": "remove_column",
     "description": "remove_column(table_name, column_name)",
-    "body": [
-      "remove_column :${1:table_name}, :${2:column_name}"
-    ]
+    "body": ["remove_column :${1:table_name}, :${2:column_name}"]
   },
   "rename_column": {
     "prefix": "rename_column",
     "description": "rename_column(table_name, column_name, new_column_name)",
-    "body": [
-      "rename_column :${1:table_name}, :${2:column_name}, :${3:new_column_name}"
-    ]
+    "body": ["rename_column :${1:table_name}, :${2:column_name}, :${3:new_column_name}"]
   },
   "rename_table": {
     "prefix": "rename_table",
     "description": "rename_table(old_name, new_name)",
-    "body": [
-      "rename_table :${1:old_name}, :${2:new_name}"
-    ]
+    "body": ["rename_table :${1:old_name}, :${2:new_name}"]
   },
   "select": {
     "prefix": "select",
     "description": "select{ |var| condition}",
-    "body": [
-      "select{ |${1:var}| $0 }"
-    ]
+    "body": ["select{ |${1:var}| $0 }"]
   },
   "times": {
     "prefix": "times",
     "description": "times",
-    "body": [
-      "times do |n|",
-      "  $0",
-      "end"
-    ]
+    "body": ["times do |n|", "  $0", "end"]
   },
   "when": {
     "prefix": "when",
     "description": "when",
-    "body": [
-      "when ${1:condition}",
-      "  $0"
-    ]
+    "body": ["when ${1:condition}", "  $0"]
   },
   "while": {
     "prefix": "while",
     "description": "while",
-    "body": [
-      "while ${condition}",
-      "  $0",
-      "end"
-    ]
+    "body": ["while ${condition}", "  $0", "end"]
   }
 }

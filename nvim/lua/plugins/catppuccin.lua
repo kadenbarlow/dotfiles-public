@@ -20,3 +20,7 @@ require("feline").setup(
 )
 
 require("gitsigns").setup()
+
+vim.cmd([[hi NotificationInfo guifg=#FFFFFF guibg=#0F111A]])
+vim.cmd([[hi NotificationWarning guifg=#FFFFFF guibg=#0F111A]])
+vim.cmd([[hi NotificationError guifg=#FFFFFF guibg=#0F111A]])

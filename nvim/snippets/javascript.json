@@ -1,18 +1,33 @@
 {
   "arrowFunction": {
-    "prefix": ["fn{", "arrowFunction"],
+    "prefix": ["fn", "arrowFunction"],
     "body": ["($1) => { $0 }"],
     "description": "Boilerplate syntax for an arrow function"
   },
   "arrowFunctionReturningObject": {
-    "prefix": ["fn(", "arrowFunctionReturnsObject"],
+    "prefix": ["fno", "arrowFunctionReturnsObject"],
     "body": ["($1) => ({ $0 })"],
     "description": "Boilerplate syntax for an anonymous function that returns an object"
   },
+  "namedFunction": {
+    "prefix": ["nfn", "namedFunction"],
+    "body": ["function $1($2) { $0 }"],
+    "description": "Boilerplate syntax for a named function"
+  },
   "singleLineArrowFunction": {
-    "prefix": ["fn", "singleLineArrowFunction"],
+    "prefix": ["fnl", "singleLineArrowFunction"],
     "body": ["($1) => $0 "],
     "description": "Boilerplate syntax for an single line anonymous function"
+  },
+  "exportDefaultNamedFunction": {
+    "prefix": ["edf", "exportDefaultNamedFunction"],
+    "body": ["export default function $1($2) { $0 }"],
+    "description": "Boilerplate syntax for an export default named function"
+  },
+  "exportDefaultObject": {
+    "prefix": ["edo", "exportDefaultObject"],
+    "body": ["export default { $0 }"],
+    "description": "Boilerplate syntax for an export default object"
   },
   "fetch": {
     "prefix": ["fetch"],
@@ -31,12 +46,12 @@
   },
   "reduceWithFunction": {
     "prefix": ["reduce", "rwf"],
-    "body": ["reduce((prevVal, $1) => { $0 })"],
+    "body": ["reduce(($1, $2) => { $0 })"],
     "description": "Inserts a reduce function call with a function body"
   },
   "reduceWithObject": {
     "prefix": ["rwo"],
-    "body": ["reduce((prevVal, $1) => ({ $0 }))"],
+    "body": ["reduce(($1, $2) => ({ $0 }))"],
     "description": "Inserts a reduce function call with a function body"
   },
   "regexMatchAll": {

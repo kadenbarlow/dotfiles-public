@@ -4,8 +4,8 @@ dotfiles for $HOME directory
 To setup a new machine...
 ```
 git clone <URL> ~/.dotfiles
-./dotfiles_setup.py
-./setup-scripts/macos.sh
+./scripts/setup-dotfiles.sh
+./scripts/setup-macos.sh
 ```
 
 See .zshrc for `dotfiles` alias to get to directory

@@ -1,29 +1,45 @@
-[includeIf "gitdir:**/projects/**/.git"]
-  path = ~/.dotfiles/git/gitconfig-personal
-
-[includeIf "gitdir:**/.dotfiles/**/.git"]
-  path = ~/.dotfiles/git/gitconfig-personal
-
-# [includeIf "gitdir:**/work/**/.git"]
-#   path = ~/.dotfiles/git/gitconfig-work
-
+[branch]
+  sort = -committerdate
+[tag]
+  sort = version:refname
+[init]
+  defaultBranch = master
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+[help]
+  autocorrect = prompt
+[commit]
+  verbose = true
+[rerere]
+  enabled = true
+  autoupdate = true
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
 [push]
-  default = current
+  default = simple
+  autoSetupRemote = true
+  followTags = true
   rebase = false
 [credential]
   helper = osxkeychain
-
 [core]
+  excludesfile = /Users/kadenbarlow/.dotfiles/git/gitignore-global
   pager = delta
-
 [interactive]
   diffFilter = delta --color-only
-
 [delta]
   features = line-numbers theme
   navigate = true
   side-by-side = false
-
 [delta "line-numbers"]
   line-numbers = true
   line-numbers-minus-style = "#444444"
@@ -33,7 +49,6 @@
   line-numbers-right-format = "{np:>4}│"
   line-numbers-left-style = blue
   line-numbers-right-style = blue
-
 [delta "theme"]
   dark = true
   true-color = always
@@ -62,3 +77,12 @@
 
   commit-decoration-style = omit
   commit-style = "#0F111A" green italic
+
+# custom configurations by directory
+
+[includeIf "gitdir:**/projects/**/.git"]
+  path = ~/.dotfiles/git/gitconfig-personal
+[includeIf "gitdir:**/.dotfiles/**/.git"]
+  path = ~/.dotfiles/git/gitconfig-personal
+# [includeIf "gitdir:**/work/**/.git"]
+#   path = ~/.dotfiles/git/gitconfig-work

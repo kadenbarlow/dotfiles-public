@@ -24,3 +24,5 @@ if (matches && !matches[0].includes(functionName)) {
 } else {
   await writeFile(`${directory}/index.js`, `import { ${functionName} } from "./${folder}"\n` + content)
 }
+
+console.log(`${directory}/${folder}/${fileName}/index.js`)

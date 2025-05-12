@@ -45,8 +45,8 @@
         "path": "./javascript.json"
       },
       {
-        "language": "javascript",
-        "path": "./applause.json"
+        "language": "sql",
+        "path": "./sql.json"
       }
     ]
   }

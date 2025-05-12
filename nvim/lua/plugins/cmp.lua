@@ -9,6 +9,7 @@ cmp.setup(
             {name = "luasnip"},
             {name = "path"},
             {name = "nvim_lsp"},
+            {name = "vim-dadbod-completion"},
             {name = "buffer"}
         },
         mapping = cmp.mapping.preset.insert(

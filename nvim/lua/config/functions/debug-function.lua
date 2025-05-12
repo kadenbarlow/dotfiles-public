@@ -1,31 +1,25 @@
+local get = require("lib.get")
+
 return function()
     local enter = " 'C-m' ;"
 
     local path = vim.fn.expand("%:p")
-    local file = io.open(vim.fn.getcwd() .. "/.neovim/debug_function.path_function", "r")
-    if file ~= nil then
-        local fn = load(string.format(file:read("*all"), path))
+    local path_function = get(project_config, {"debug_function", "path_function"})
+    if path_function then
+        local fn = load(string.format(path_function, path))
         if fn ~= nil then
             path = fn()
         end
     end
 
-    local import_command = '{ default: fn } = await import("' .. path .. '")'
-    file = io.open(vim.fn.getcwd() .. "/.neovim/debug_function.import_command", "r")
-    if file ~= nil then
-        import_command = string.format(file:read(), vim.fn.expand("%:p"))
-        file:close()
-    end
+    local default_import_command = '{ default: fn } = await import("' .. path .. '")'
+    local import_command = get(project_config, {"debug_function", "import_command"}, default_import_command)
 
-    local start_repl_command = "yarn repl"
-    file = io.open(vim.fn.getcwd() .. "/.neovim/debug_function.repl_command", "r")
-    if file ~= nil then
-        start_repl_command = string.format(file:read(), vim.fn.expand("%:p"))
-        file:close()
-    end
+    local default_repl_command = "yarn repl"
+    local repl_command = get(project_config, {"debug_function", "repl_command"}, default_repl_command)
 
     vim.cmd(
         ":silent !tmux split-window -h; tmux send-keys " ..
-            "'" .. start_repl_command .. "'" .. enter .. "tmux send-keys " .. "'" .. import_command .. "'" .. enter
+            "'" .. repl_command .. "'" .. enter .. "tmux send-keys " .. "'" .. import_command .. "'" .. enter
     )
 end

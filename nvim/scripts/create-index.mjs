@@ -16,11 +16,14 @@ const { imports, exports } = Object.entries(
   .reduce(
     (acc, [key, value]) => {
       acc.imports.push(`import ${key} from "${value}";`)
-      acc.exports.push(`  ${key},`)
+      acc.exports.push(`  ${key}`)
       return acc
     },
     { imports: [], exports: [] },
   )
 
-await writeFile(`${process.argv[2]}/index.js`, `${imports.join("\n")}\n\nexport {\n${exports.join("\n")}\n};\n`)
+await writeFile(
+  `${process.argv[2]}/index.js`,
+  `${imports.join("\n")}\n\nexport${!!process.argv[3] ? " default" : ""} { ${exports} };\n`,
+)
 spawnSync("prettier", ["--write", `${process.argv[2]}/index.js`])

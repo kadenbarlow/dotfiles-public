@@ -4,18 +4,18 @@
 
 local util = require "formatter.util"
 local function rubocop()
-  return {
-    exe = "rubocop",
-    args = {
-      "--autocorrect-all",
-      "--stdin",
-      util.escape_path(util.get_current_buffer_file_name()),
-      "--format",
-      "files",
-      "--stderr",
-    },
-    stdin = true,
-  }
+    return {
+        exe = "rubocop",
+        args = {
+            "--autocorrect-all",
+            "--stdin",
+            util.escape_path(util.get_current_buffer_file_name()),
+            "--format",
+            "files",
+            "--stderr"
+        },
+        stdin = true
+    }
 end
 
 require("formatter").setup {

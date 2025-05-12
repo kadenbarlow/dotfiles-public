@@ -1,9 +1,5 @@
 local window = require("window_management")
 local homeAutomation = require("home_automation")
-local monitors = require("monitors")
-
-monitors.applyLayout()
--- monitors.watch()
 
 local hyper = {"cmd", "ctrl", "alt", "shift"}
 local secondary = {"cmd", "alt"}
@@ -32,7 +28,8 @@ end
 
 local function keyStroke(modifiers, key)
     return function()
-        hs.eventtap.keyStroke(modifiers, key)
+        local defaultDelay = 200000
+        hs.eventtap.keyStroke(modifiers, key, defaultDelay, hs.application.frontmostApplication())
     end
 end
 
@@ -42,7 +39,14 @@ local function keyStrokes(keys)
     end
 end
 
-bindKey(hyper, {c = window.squareAndCenterOnScreen, r = hs.reload})
+bindKey(
+    hyper,
+    {
+        c = window.squareAndCenterOnScreen,
+        r = hs.reload,
+        q = keyStroke({"cmd"}, "`")
+    }
+)
 
 bindKey(secondary, {})
 
